@@ -2,8 +2,6 @@
 const start_btn_home = document.querySelector(".start_btn");
 const start_btn = document.querySelector(".start_btn #button_play");
 const info_box = document.querySelector(".info_box");
-const highscores = document.querySelector("#highscores");
-const scoreTextPoint = document.getElementById("score");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
@@ -48,7 +46,6 @@ continue_btn.onclick = () => {
 let timeValue = 30;
 let que_count = 0;
 let que_numb = 1;
-let userScore = 0;
 let counter;
 let counterLine;
 let widthValue = 0;
@@ -58,7 +55,6 @@ const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if restartQuiz button clicked
 restart_quiz.onclick = () => {
-  localStorage.setItem("mostRecentScore", userScore); /*go to the end page*/
   return window.location.assign("./src/pages/end.html");
 };
 
@@ -137,13 +133,9 @@ function optionSelected(answer) {
   let correcAns = questions[que_count].answer; //getting correct answer from array
   const allOptions = option_list.children.length; //getting all option items
   if (userAns == correcAns) {
-    //if user selected option is equal to array's correct answer
-    userScore += 1; //upgrading score value with 1
-    scoreTextPoint.innerHTML = userScore * 10;
-    answer.classList.add("correct"); //adding green color to correct selected option
+       answer.classList.add("correct"); //adding green color to correct selected option
     answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
     console.log("Correct Answer");
-    console.log("Your correct answers = " + userScore);
   } else {
     answer.classList.add("incorrect"); //adding red color to correct selected option
     answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
@@ -168,36 +160,6 @@ function showResult() {
   info_box.classList.remove("activeInfo"); //hide info box
   quiz_box.classList.remove("activeQuiz"); //hide quiz box
   result_box.classList.add("activeResult"); //show result box
-  const scoreText = result_box.querySelector(".score_text");
-  if (userScore > 3) {
-    // if user scored more than 3
-    //creating a new span tag and passing the user score number and total question number
-    let scoreTag =
-      "<span>E parabéns!! 🎉, você fez <p>" +
-      userScore * 10 +
-      "</p> de <p>" +
-      questions.length * 10 +
-      "</p></span>";
-    scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
-  } else if (userScore > 1) {
-    // if user scored more than 1
-    let scoreTag =
-      "<span>E legal 😎, você fez  <p>" +
-      userScore * 10 +
-      "</p> de <p>" +
-      questions.length * 10 +
-      "</p></span>";
-    scoreText.innerHTML = scoreTag;
-  } else {
-    // if user scored less than 1
-    let scoreTag =
-      "<span>e desculpe 😐, Você fez apenas <p>" +
-      userScore * 10 +
-      "</p> de <p>" +
-      questions.length * 10 +
-      "</p></span>";
-    scoreText.innerHTML = scoreTag;
-  }
 }
 
 function startTimer(time) {
