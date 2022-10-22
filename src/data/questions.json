@@ -50,12 +50,12 @@
       "category": "Telecomunicação",
       "type": "multiple",
       "difficulty": "easy",
-      "question": "Para um circuito de 12dBm é recomendavél  usar o analisador de spctrum digital ou analógico? Por quê?",
-      "correct_answer": "O digital, afinal a potência máxima é menor  que a do analisador - A",
+      "question": "Não posso ser vista, mas posso ser medida, porém  me exergar a medida que o tempo passa é difícil, sou mais visível em outro domínio.",
+      "correct_answer": "Onda eletromagnética - A",
       "incorrect_answers": [
-       "O digital, pois a tensão máxima é maior que a do analisador - C",
-       "O analógico, porque a potência máxima é menor que a do analisador - S",
-       "O analógico, devido a tensão máxima ser maior que a do analisador - E"
+       "Corrente elétrica - C",
+       "Tensão - S",
+       "Eletricidade - E"
       ]
     },
     {
