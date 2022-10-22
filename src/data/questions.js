@@ -88,7 +88,7 @@ let questions = [
       category: "Biomédica",
       type: "multiple",
       difficulty: "easy",
-      question: "Qual o nome da doença descrita na frase: Doença que afeta uma criança quando nasce outra - H",
+      question: "Qual o nome da doença descrita na frase: Doença que afeta uma criança quando nasce outra",
       answer: "Kwashiorkor - H",
       options: ["Schwarzenegger - E","Marasmo - A", "Donald Kwashiorkor - C", "Kwashiorkor - H"],
     },
